@@ -6,4 +6,7 @@ def perform_operation(num1, num2, operation):
         case "divide":
             try: return num1 / num2
             except ZeroDivisionError : return "cannot divide by zero"
-        case _: return "Unknown operartion"
+        case _: 
+            if operation == "add":
+                pass
+            else: return "Unknown operartion"
