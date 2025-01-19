@@ -5,7 +5,17 @@ class Book:
         self.author = author
         self.__is_checked_out__ = False
 
-    
+    def check_out_book(self):
+        if self.__is_checked_out__ == False:
+            self.__is_checked_out__ = True
+            return True
+        else: return False
+
+    def return_book(self):
+        if self.__is_checked_out__ == True:
+            self.__is_checked_out__ = False
+            return True
+        else: return False
 
 class Library:
     
@@ -16,15 +26,23 @@ class Library:
         if (type(book)= Book):
             self.__books__.append(book)
     
-    def check_out_book(self, title):
+    def check_out_book(self,title):
+        done = False
         for i in self.__books__:
-            if title == i.title and i.__is_checked_out__ == False:
-                i.__is_checked_out__ = True
-
-    def return_book(self, title):
+            if i.title == title and i.check_out_book():
+                i.check_out_book()
+                done = True
+                break
+        return done    
+    
+    def return_book(self,title):
+        done = False
         for i in self.__books__:
-            if title == i.title and i.__is_checked_out__ == True:
-                i.__is_checked_out__ = False
+            if i.title == title and i.return_book():
+                i.return_book()
+                done = True
+                break
+        return done 
 
     def list_available_books(self):
         available = []
