@@ -20,15 +20,15 @@ class Book:
 class Library:
     
     def __init__(self):
-        self.__books__ = []
+        self._books = []
 
     def add_book(self, book):
         if (type(book)= Book):
-            self.__books__.append(book)
+            self._books.append(book)
     
     def check_out_book(self,title):
         done = False
-        for i in self.__books__:
+        for i in self._books:
             if i.title == title and i.check_out_book():
                 i.check_out_book()
                 done = True
@@ -37,7 +37,7 @@ class Library:
     
     def return_book(self,title):
         done = False
-        for i in self.__books__:
+        for i in self._books:
             if i.title == title and i.return_book():
                 i.return_book()
                 done = True
@@ -46,7 +46,7 @@ class Library:
 
     def list_available_books(self):
         available = []
-        for i in self.__books__:
+        for i in self._books:
             if i.__is_checked_out__ == False:
                 available.append(i.title)
         return available
