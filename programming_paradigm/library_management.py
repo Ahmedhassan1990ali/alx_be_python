@@ -8,7 +8,9 @@ class Book:
     
 
 class Library:
-    __books__ = []
+    
+    def __init__(self):
+        self.__books__ = []
 
     def add_book(self, book):
         if (type(book)= Book):
