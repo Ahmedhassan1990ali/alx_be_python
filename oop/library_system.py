@@ -1,0 +1,38 @@
+class Book:
+
+    def __init__(self, title: str, author: str):
+        self.title = title
+        self.author = author
+
+    def book_details(self):
+        print (f"Book: {self.title} by {self.title}")
+
+class EBook(Book):
+    def __init__(self, title, author, file_size: int):
+        super().__init__(title, author)
+        self.file_size = file_size
+
+    def book_details(self):
+        print (f"Book: {self.title} by {self.title}, File Size: {self.file_size}")
+
+
+class PrintBook(Book):
+    def __init__(self, title, author, page_count: int):
+        super().__init__(title, author)
+        self.page_count = page_count
+
+    def book_details(self):
+        print (f"Book: {self.title} by {self.title}, Page Count: {self.page_count}")    
+
+class Library:
+    def __init__(self):
+        self.books = []
+    
+    def add_book(self, book: Book):
+        self.books.append(book)
+    
+    def list_books(self):
+        for book in self.books:
+            book.book_details()
+
+    
